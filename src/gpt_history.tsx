@@ -3,13 +3,13 @@ import { useEffect, useState } from "react";
 import { formatTime, clearHistoryItem } from "./lib/utils";
 
 const cache = new Cache();
-const ls = cache.get("history");
 
 /**
  * @param args
  * @returns
  */
 export default function Command() {
+  const ls = cache.get("history");
   const list = ls ? JSON.parse(ls) : [];
   const [searchText, setSearchText] = useState("");
   const [filteredList, setFilterList] = useState(list);
@@ -33,12 +33,13 @@ export default function Command() {
           detail={<List.Item.Detail markdown={item.answer} />}
           actions={
             <ActionPanel title="Action">
-              <Action.CopyToClipboard title="Copy content" content={item.answer} />
+              <Action.CopyToClipboard title="Copy Content" content={item.answer} />
               <Action
                 icon={Icon.DeleteDocument}
-                title="Delete item"
+                title="Delete Item"
                 onAction={() => {
                   clearHistoryItem(item.created);
+                  const ls = cache.get("history");
                   const list = ls ? JSON.parse(ls) : [];
                   setFilterList(list);
                 }}

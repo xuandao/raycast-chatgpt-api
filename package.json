@@ -1,19 +1,21 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "raycast-chatgpt-api",
-  "title": "Raycast Plugin: Quickly Call ChatGPT API.",
+  "title": "Ask ChatGPT",
+  "version": "0.0.1",
   "description": "Raycast Plugin: Quickly Call ChatGPT API.",
   "icon": "chatGPT.png",
   "repository": "git@github.com:xuandao/raycast-chatgpt-api.git",
   "author": "xuandao",
   "categories": [
-    "Communication"
+    "System",
+    "Other"
   ],
   "license": "MIT",
   "commands": [
     {
       "name": "gpt_im",
-      "title": "chatGPT",
+      "title": "Ask ChatGPT",
       "subtitle": "Quickly Call ChatGPT API.",
       "description": "Quickly Call ChatGPT API.",
       "mode": "view",
@@ -21,14 +23,14 @@
         {
           "name": "content",
           "type": "text",
-          "placeholder": "Please enter your question.",
+          "placeholder": "Please enter your prompt.",
           "required": true
         }
       ]
     },
     {
       "name": "gpt_history",
-      "title": "History",
+      "title": "View History",
       "subtitle": "View browsing history.",
       "description": "View browsing history.",
       "mode": "view"

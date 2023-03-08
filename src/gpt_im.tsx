@@ -10,7 +10,7 @@ import { invokeChatGPT, saveHistory } from "./lib/utils";
 export default function Command(args: any) {
   // 初始化设置
   const [isLoading, setIsLoading] = useState(true);
-  const [gptResut, setGptResult] = useState("Loading......");
+  const [gptResut, setGptResult] = useState("");
   const { content } = args.arguments;
 
   if (isLoading) {
@@ -23,7 +23,7 @@ export default function Command(args: any) {
       GPT.then((res) => {
         const data = res.data;
         saveHistory("im", content, data);
-        setGptResult(`### Q: ${content} \n\n --- \n\n ${data.choices[0].message.content}`);
+        setGptResult(`${data.choices[0].message.content}`);
       })
         .catch((err) => {
           setGptResult(`error: ${err.message}`);
